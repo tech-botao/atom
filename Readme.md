@@ -19,14 +19,14 @@ println(atom.EnvOrPanic("APP_ENV"))
 > 各种变换
 
 ```golang
-	var v interface{}
-	var s = `{"a":1, "b":2}`
-	err := DecodeFromString(s, &v)
+var v interface{}
+var s = `{"a":1, "b":2}`
+err := DecodeFromString(s, &v)
 
-	if err != nil {
-		logger.Error("DecodeFromString()", err)
-		return
-	}
+if err != nil {
+	logger.Error("DecodeFromString()", err)
+	return
+}
 
-	logger.Info("decode "+s+" => ", v)
+logger.Info("decode "+s+" => ", v)
 ```
