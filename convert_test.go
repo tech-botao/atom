@@ -1,4 +1,4 @@
-package lib
+package atom
 
 import (
 	"github.com/k0kubun/pp"
