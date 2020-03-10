@@ -2,6 +2,7 @@ package lib
 
 import (
 	"github.com/k0kubun/pp"
+	"github.com/tech-botao/logger"
 	"io"
 	"reflect"
 	"strings"
@@ -132,4 +133,20 @@ func TestReaderToString(t *testing.T) {
 			}
 		})
 	}
+}
+
+func ExampleDecodeFromString() {
+
+	var v interface{}
+	var s = `{"a":1, "b":2}`
+	err := DecodeFromString(s, &v)
+
+	if err != nil {
+		logger.Error("DecodeFromString()", err)
+		return
+	}
+
+	logger.Info("decode "+s+" => ", v)
+
+	// output:
 }

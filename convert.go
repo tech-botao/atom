@@ -3,8 +3,8 @@ package lib
 import (
 	"bytes"
 	"encoding/json"
-	"github.com/k0kubun/pp"
 	"github.com/pkg/errors"
+	"github.com/tech-botao/logger"
 	"io"
 	"io/ioutil"
 	"strconv"
@@ -22,7 +22,6 @@ func DecodeFromByte(b []byte, v interface{}) error {
 // DecodeFromFile jsonFile -> struct
 func DecodeFromFile(filename string, v interface{}) error {
 	f, err := ioutil.ReadFile(filename)
-	pp.Println(err)
 	if err != nil {
 		return errors.WithMessage(err, filename + " open error")
 	}
@@ -41,7 +40,7 @@ func DecodeFromReader(reader io.Reader, v interface{}) error {
 // 测试用的函数，输出内容
 func ReaderDump(reader io.Reader) error {
 	s := ReaderToString(reader)
-	pp.Println(s)
+	logger.Debug("dump", s)
 	return nil
 }
 
